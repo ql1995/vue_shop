@@ -25,6 +25,7 @@
 <script type="text/ecmascript-6">
 import { async } from 'q'
 export default {
+  
   data(){
     return{
       loginForm:{
