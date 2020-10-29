@@ -1,3 +1,4 @@
+
 <template>
 
   <el-container class="home-container">
@@ -24,7 +25,7 @@
               <span>{{menuItem.authName}}</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item :index="'/'+item.path" @click="saveNavStatus('/'+item.path)" v-for="item in menuItem.children" :key="item.id">
+            <el-menu-item  :index="'/'+item.path"  @click="saveNavStatus('/'+item.path)" v-for="item in menuItem.children" :key="item.id">
               <!-- 二级菜单的模板区域 -->
               <template slot="title">
                 <i class="el-icon-menu"></i>
