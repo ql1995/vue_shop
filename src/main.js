@@ -10,11 +10,19 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 axios.defaults.baseURL='http://127.0.0.1:8888/api/private/v1/'
 
-//添加拦截器
+//添加请求拦截器
 axios.interceptors.request.use(config=>{
+  NProgress.start()
   config.headers.Authorization=sessionStorage.getItem('token');
+  return config
+})
+// 添加响应拦截器
+axios.interceptors.response.use(config=>{
+  NProgress.done()
   return config
 })
 //添加过滤器
